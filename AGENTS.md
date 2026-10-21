@@ -6,15 +6,17 @@ Standing rules for any agent working in this repo (Codex, Claude Code, or other)
 
 CT390 Week 8 animation lab. The Next.js app lives in `animation-project/`. It is deployed to GitHub Pages by `.github/workflows/deploy-pages.yml` on every push to `main`, with Storybook published at `/storybook/` inside the same site.
 
-Live site: https://fitnyc-ct390.github.io/rapid-prototyping-with-ai-week-8-elijahcruzado-fitnyc/
-Storybook: https://fitnyc-ct390.github.io/rapid-prototyping-with-ai-week-8-elijahcruzado-fitnyc/storybook/
+Live site: https://elijahcruzado-fitnyc.github.io/week-8-animation-lab/
+Storybook: https://elijahcruzado-fitnyc.github.io/week-8-animation-lab/storybook/
+
+The same code is pushed to two repos: the Classroom repo (fitnyc-ct390/rapid-prototyping-with-ai-week-8-elijahcruzado-fitnyc) for grading, and a personal mirror (elijahcruzado-fitnyc/week-8-animation-lab) where Pages is enabled. Students don't have admin on the Classroom repo, so Pages can't be turned on there until an instructor does it. Once it is, the Classroom site will be at https://fitnyc-ct390.github.io/rapid-prototyping-with-ai-week-8-elijahcruzado-fitnyc/
 
 ## Keep the site static and deployable
 
 GitHub Pages only hosts static files. Every change must still pass `npm run build` as a static export.
 
 1. Keep `output: "export"` in `animation-project/next.config.ts`. Do not remove it.
-2. Keep `basePath` set to `/rapid-prototyping-with-ai-week-8-elijahcruzado-fitnyc` in production. Pages serves the site from that subpath; without it every asset 404s.
+2. Keep `basePath` set to `/<repo-name>` in production, read from `GITHUB_REPOSITORY` in Actions. Pages serves the site from that subpath; without it every asset 404s. Do not hard-code one repo name.
 3. Keep `images: { unoptimized: true }`. The Next image optimizer needs a server.
 4. Keep `trailingSlash: true` so each route exports as `route/index.html`.
 5. No server features: no API routes (`app/api`), no Route Handlers that run per request, no Server Actions, no middleware or proxy, no `cookies()`, `headers()` or other dynamic server functions, no ISR or `revalidate`, no dynamic routes without `generateStaticParams`.
