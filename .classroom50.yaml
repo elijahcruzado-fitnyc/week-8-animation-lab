@@ -1,0 +1,7 @@
+schema: "classroom50/repo-config/v1"
+classroom: "rapid-prototyping-with-ai"
+assignment: "week-8"
+owner:
+  username: "elijahcruzado-fitnyc"
+  id: 324255246
+  accepted_at: "2026-10-21T22:35:13Z"
